@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Socios y suscriptores - AAT
+{% endblock titulo %}
+
+
+{% block js %}
+<link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-pricingtable/dist/css/bulma-pricingtable.min.css">
+<script src="/node_modules/bulma-extensions/bulma-calendar/dist/bulma-calendar.min.js"></script>
+{% endblock js %}
+
+
+{% block body %}
+
+
+<section class="section">
+    <div class="container">///////////////////////////////////////////////////////
+        <div id="app">
+            <!-- Buefy components goes here -->
+            <template>
+                <div class="content is-medium">
+
+                    <h2 class="title is-3">
+                        Socios y Suscriptores
+                    </h2>
+
+                    <p>La Asociación Argentina de Tartamudez (A.A.T.) es una Asociación Civil sin fines de lucro (Pers.
+                        Jurúdica 305/97 – Exp. 1632188/97).</br>
+                        Tiene como objetivo la investigación, prevención y difusión de todo lo relacionado con la
+                        tartamudez. Invitamos a papás, profesionales, personas disfluentes a asociarse.</br>
+
+                        <strong>
+                            <div class="mt-2">Los objetivos de la institución son:</div>
+                        </strong>
+
+
+                        <li> Desarrollar una intervención precoz trabajando en la prevención</li>
+
+                        <li> Aumentar la eficacia de los tratamiento.</li>
+                        <li> Hacer progresar la investigación sobre la tartamudez y su abordaje.</li>
+
+                        <li>Tener una sede propia donde funcione un centro permanente</li></br>
+
+                        Todos los días trabajamos incansablemente para poder crecer como Asociación. Queremos incorporar
+                        más actividades, capacitaciones, beneficios…
+                        ¡Queremos llegar a todo nuestro país para poder ayudar a más personas!
+                    </p>
+
+                    <strong> Para inscribirte como socio debes:</strong>
+                    <ol type="1">
+                        <li>Elegir una opción detallada más abajo.</li>
+                        <li>Realizar un depósito/transferencia según el monto que corresponda.</li>
+                        <li>Llenar el formulario pertinente adjuntando el comprobante de pago.</li>
+                        <li>Enviar el formulario.</li>
+                        <li>Por cualquier consulta comunicarse a info@aat.org.ar</li>
+
+                    </ol>
+
+                    <strong>La Cuota es ANUAL: </strong>
+
+                    <p>– Personas con tartamudez, familiares y público en general: $500</br>
+                        – Profesionales: $4000</p>
+
+
+
+                    <strong>DATOS DE LA CUENTA:</strong>
+                    <p>BANCO NACIÓN</br>
+                        Asociación Argentina de Tartamudez</br>
+                        CAJA DE AHORRO (Cuenta especial en pesos)</br>
+                        Número de cuenta: 130857347</br>
+                        CBU: 0110013640001308573476</br>
+                        CUIT: 30-69222582-8</p>
+
+                    <p>¡Se parte de una lucha colectiva!</br>
+                        Muchas gracias</p>
+
+
+
+
+                </div>
+
+                <div class="pricing-table">
+                    <div class="pricing-plan">
+                        <div class="plan-header">Suscripción <p class="has-text-weight-light"> Personas que deseen
+                                recibir</br> información</p>
+                        </div>
+                        <div class="plan-price is-3"><span class="plan-price-currency is-size-5">Gratis</span></div>
+                        <div class="plan-items">
+                            <div class="plan-item">Información de jornadas y eventos </div>
+                            <div class="plan-item">-</div>
+                            <div class="plan-item">-</div>
+                            <div class="plan-item">-</div>
+                            <div class="plan-item">-</div>
+
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan is-warning">
+                        <div class="plan-header">Socios <p class="has-text-weight-light"> Personas con tartamudez,</br>
+                                familiares y público en general</p>
+                        </div>
+                        <div class="plan-price"><span class="plan-price-amount"><span
+                                    class="plan-price-currency">$</span>500</span>/año</div>
+                        <div class="plan-items">
+                            <div class="plan-item">Información de jornadas y eventos </div>
+                            <div class="plan-item"> Acceso a biblioteca virtual </div>
+                            <div class="plan-item"> Descuentos en jornadas y eventos </div>
+                            <div class="plan-item">-</div>
+                            <div class="plan-item">-</div>
+                        </div>
+
+                    </div>
+
+                    <div class="pricing-plan is-active">
+                        <div class="plan-header">Socios <p class="has-text-weight-light">Profesionales</p>
+                        </div>
+                        <div class="plan-price"><span class="plan-price-amount"><span
+                                    class="plan-price-currency">$</span>4000</span>/año</div>
+                        <div class="plan-items">
+                            <div class="plan-item">Información de jornadas y eventos </div>
+                            <div class="plan-item"> Acceso a biblioteca virtual </div>
+                            <div class="plan-item"> Descuentos en jornadas y eventos </div>
+                            <div class="plan-item">Descuentos en cursos y capacitaciones </div>
+                            <div class="plan-item">Publicación del profesional en la página </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+        </div>
+        </template>
+    </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/vue"></script>
+<!-- Full bundle -->
+<script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+
+<!-- Individual components -->
+<script src="https://unpkg.com/buefy/dist/components/table"></script>
+<script src="https://unpkg.com/buefy/dist/components/input"></script>
+
+<script>
+    new Vue({
+        el: '#app'
+    })
+</script>
+
+
+
+
+{% endblock body %}

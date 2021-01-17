@@ -1,0 +1,68 @@
+
+
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block titulo %}Inicio{% endblock titulo %}
+
+
+
+{% block body %}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v9.0&appId=193535731924067&autoLogAppEvents=1" nonce="TW4woDAe"></script>
+
+<section class="hero is-info is-large" style="background-image: url('{% static 'images/portada.jpg' %}'); background-repeat: no-repeat;  background-size: cover;  
+"
+>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 is-uppercase is-family-monospace pb-6" style="color: rgba(92, 231, 111, 0.61);">
+        
+Tomar conciencia, conocer...
+      </h1>
+      <h2 class="subtitle is-3 is-family-primary pb-6" style="color: rgba(92, 231, 111, 0.61);">
+        Para generar cambios, para desmitificar lo negativo, el prejuicio y la burla. <br />Lograr que sea un hecho natural y público.
+      </h2>
+      <h2 class="subtitle pt-5">
+     
+      22 de Octubre - Día Internacional de Toma de Conciencia de la Tartamudez
+       </h2>
+    </div>
+  </div>
+
+</section>
+<section class="pt-5">
+<div class="container is-max-desktop">
+<div class="card">
+  <div class="card-content">
+    <p class="title has-text-centered is-spaced has-text-weight-medium">
+      "Fomentar la participación activa de fonoaudiólogas de todo el país, dentro y fuera de la Institución, logrando aumentar la cantidad y calidad de especialistas que atiendan tanto en el Ámbito público como en el privado."
+    </p>
+    <p class="subtitle">
+    Beatriz Biain de Touzet
+    </p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="pt-5 pb-5">
+
+<div class="container">
+<div class="columns">
+<div class="column">
+<div class="fb-page" data-href="https://www.facebook.com/www.aat.org.ar/" data-tabs="timeline" data-width="1300" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/www.aat.org.ar/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/www.aat.org.ar/">Asociación Argentina de Tartamudez</a></blockquote></div>
+</div>
+<div class="column">
+<div class="card">
+  <div class="card-content">
+<img src="{% static 'images/YoMeQuedoEnCasa.jpg' %}" alt="">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section>
+{% endblock body %}

@@ -1,0 +1,49 @@
+@media screen and (min-width: 1024px) {
+.navbar{
+
+  height: 90px;
+}
+
+.navbar-item, .navbar-link{
+  letter-spacing: 0.1rem;
+  color: #838383;
+  font-weight: 500;
+  line-height: 1.07;
+  font-size: 1.1rem;
+
+}
+.imagen-portada{
+  background-size: cover;
+}
+
+
+
+
+}
+
+.footer, .footer strong, .footer a{
+  background-color: #222222;
+  color: #E9E9E9;
+  font-size: 16px;
+  line-height: 22px;
+  
+}
+/* .footer strong, .footer a{
+  padding-bottom: 1.5rem;
+} */
+
+#logo{
+  height: 70px;
+  width: auto;
+
+}  
+
+
+#donar{
+  letter-spacing: 0.1rem;
+}
+
+.border-bottom{
+
+    border-bottom: 1px solid #ebeaeb;
+}

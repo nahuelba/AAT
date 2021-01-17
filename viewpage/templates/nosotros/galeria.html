@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block galeria %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock galeria %}
+
+{% block titulo %}Galería{% endblock titulo %}
+
+
+
+
+{% block body %}
+<section class="section" id="galery">
+
+  <p class="heading">Galería {{ galeria.titulo }}</p>
+  <div class="gallery-image">
+    <div class="img-box">
+      <img data-enlargeable width="100" style="cursor: zoom-in" src="https://picsum.photos/350/250?image=444" alt="" />
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Library</p>
+          <p class="opacity-low">Architect Design</p>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+</section>
+
+
+
+{% endblock body %}
