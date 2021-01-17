@@ -5,7 +5,6 @@ from .models import galeria
 
 # Create your views here.
 
-
 class inicio(TemplateView):
     template_name='inicio.html'
 
