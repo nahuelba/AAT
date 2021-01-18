@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 
 # Create your views here.
@@ -23,6 +23,7 @@ class ActividadesView(TemplateView):
 
 class ProfesionalesView(TemplateView):
     template_name='tartamudez/profesionales.html'
+
 
 
 class FormacionView(TemplateView):

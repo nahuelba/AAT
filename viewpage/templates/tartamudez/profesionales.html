@@ -19,51 +19,125 @@ Profesionales - AAT
             <template>
                 <section class="section">
 
-                    <h2 class="title is-3">Profesionales Especializados</h2>
+
 
                     <b-notification type="is-warning" has-icon aria-close-label="Close notification" role="alert">
-                    <div class="columns">
-                        <div class="column is-10">
-                    
-                        <p>
-                            Si no encuentra en la página un especialista cercano a su domicilio, por favor comuníquese
-                            con la Asociación Argentina de Tartamudez donde lo pueden seguir asesorando. En la página
-                            figuran únicamente socios de la AAT. Gracias.</p>
+                        <div class="columns">
+                            <div class="column is-10">
 
-                    </div>
-                    <div class="column">
-                        <button class="button is-success is-light">Contacto</button>
+                                <p>
+                                    Si no encuentra en la página un especialista cercano a su domicilio, por favor
+                                    comuníquese
+                                    con la Asociación Argentina de Tartamudez donde lo pueden seguir asesorando. En la
+                                    página
+                                    figuran únicamente socios de la AAT. Gracias.</p>
 
-                    </div>
-                    
-                    </div>
+                            </div>
+                            <div class="column">
+                                <button class="button is-success is-light">Contacto</button>
+
+                            </div>
+
+                        </div>
                     </b-notification>
+
+                    <h2 class="title is-3">Profesionales Especializados</h2>
 
                     <h2 class="title is-4">Ciudad autónoma de Buenos Aires</h2>
 
-                    <b-collapse :open="false" class="card" animation="slide" aria-id="contentIdForA11y3">
-            <template #trigger="props">
-                <div
-                    class="card-header"
-                    role="button"
-                    aria-controls="contentIdForA11y3">
-                    <p class="card-header-title">
-                        Component
-                    </p>
-                    <a class="card-header-icon">
-                        <b-icon
-                            :icon="props.open ? 'menu-down' : 'menu-up'">
-                        </b-icon>
-                    </a>
-                </div>
-            </template>
+                    <div>
+                        <b-collapse :open="false" class="card" animation="slide" aria-id="contentIdForA11y3">
 
-            <div class="card-content">
-                <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                    <a>#buefy</a>.
-                </div>
-            </div>
+                            <template #trigger="props">
+                                <div class="card-header" role="button" aria-controls="contentIdForA11y3">
+                                    <p class="card-header-title">
+
+
+                                        Almagro
+
+
+                                    </p>
+                                    <a class="card-header-icon">
+                                        <b-icon :icon="props.open ? 'menu-down' : 'menu-up'">
+                                        </b-icon>
+                                    </a>
+                                </div>
+                            </template>
+
+                            <div class="card-content">
+                                <div class="content">
+                                    <h1 class="title is-4">Lic. Stefania C. Restifa</h1>
+
+
+                                    <p> Dir: Av.
+                                        Díaz vélez y Salguero
+                                    </p>
+                                    <p>
+                                        Tel.:
+                                        15-62779472.
+                                    </p>
+                                    <p>
+                                        E-Mail:
+                                        restifastefania@gmail.com
+                                        ó
+                                        consultoriodiazvelez@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+
+                    </div>
+
+
+
+
+                    <div>
+                        <b-collapse :open="false" class="card" animation="slide" aria-id="contentIdForA11y3">
+
+                            <template #trigger="props">
+                                <div class="card-header" role="button" aria-controls="contentIdForA11y3">
+                                    <p class="card-header-title">
+
+
+                                        Belgrano
+
+
+                                    </p>
+                                    <a class="card-header-icon">
+                                        <b-icon :icon="props.open ? 'menu-down' : 'menu-up'">
+                                        </b-icon>
+                                    </a>
+                                </div>
+                            </template>
+
+                            <div class="card-content">
+                                <div class="content">
+                                    <h1 class="title is-4">Lic. Beatriz Biain de Touzet</h1>
+
+                                    <p>
+                                        Tel.: 4784-9115 ó 1540625833..
+                                    </p>
+                                    <p> 
+E-Mail: beatrizbiain@gmail.com
+                                    </p>
+                                    <p>- Docente UBA</p>
+
+                                    <h1 class="title is-4">Silvina Ashton</h1>
+
+
+                                    <p> Dir: Cuba 1956 (Con cita previa).
+                                    </p>
+                                    <p>
+                                      Tel.: 1559206150.
+                                    </p>
+                                    <p>
+                                         
+E-Mail: Silvinaashton@yahoo.com.ar
+                                    </p>
+                                </div>
+                            </div>
+
+                    </div>
+
 
 
 
@@ -71,42 +145,43 @@ Profesionales - AAT
                 </section>
 
 
-                 <section class="section">
+
+                <section class="section">
 
                     <h2 class="title is-3">Profesionales Interdisciplinarios</h2>
 
                     <h2 class="title is-4">Buenos Aires</h2>
 
-            <b-collapse :open="false" class="card" animation="slide" aria-id="contentIdForA11y3">
-            <template #trigger="props">
-                <div
-                    class="card-header"
-                    role="button"
-                    aria-controls="contentIdForA11y3">
-                    <p class="card-header-title">
-                        Belgrano
-                    </p>
-                    <a class="card-header-icon">
-                        <b-icon
-                            :icon="props.open ? 'menu-down' : 'menu-up'">
-                        </b-icon>
-                    </a>
-                </div>
-            </template>
+                    <b-collapse :open="false" class="card" animation="slide" aria-id="contentIdForA11y3">
+                        <template #trigger="props">
+                            <div class="card-header" role="button" aria-controls="contentIdForA11y3">
+                                <p class="card-header-title">
+                                    Belgrano
+                                </p>
+                                <a class="card-header-icon">
+                                    <b-icon :icon="props.open ? 'menu-down' : 'menu-up'">
+                                    </b-icon>
+                                </a>
+                            </div>
+                        </template>
 
-            <div class="card-content">
-                <div class="content">
-                    <li><div class="name"><h2>Consultora Psicologica. Norma Esper</h2>
-                    <p>Atención individual y grupal. Orientación a padres.</p></div>
-                    <p>E-Mail: normacesper@gmail.com</p>
-                    <p>Celular:011 154186- 8400</p></li>
-                </div>
-            </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <li>
+                                    <div class="name">
+                                        <h2>Consultora Psicologica. Norma Esper</h2>
+                                        <p>Atención individual y grupal. Orientación a padres.</p>
+                                    </div>
+                                    <p>E-Mail: normacesper@gmail.com</p>
+                                    <p>Celular:011 154186- 8400</p>
+                                </li>
+                            </div>
+                        </div>
 
 
-            
-            
-           
+
+
+
                 </section>
             </template>
 
