@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import galeria
 
 
 # Create your views here.
@@ -17,8 +16,7 @@ class comision_directiva(TemplateView):
 
 class galeriaView(TemplateView):
     template_name='nosotros/galeria.html'
-    model = 'galeria'
-    context_object_name = 'galeria'
+
 
 class ActividadesView(TemplateView):
     template_name='tartamudez/Actividades.html'   

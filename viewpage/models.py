@@ -2,13 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-class galeria(models.Model):
-    foto = models.FileField()
-    titulo =models.CharField(max_length=80, blank=True )
-    descripcion = models.TextField(max_length=120, blank=True)
+class profesionales(models.Model):
+    
 
     class Meta:
-        verbose_name_plural= "fotos"
+        verbose_name_plural= "profesionales"
 
     def __str__(self):
         return self.titulo

@@ -2,30 +2,93 @@
 {% load static %}
 {% block galeria %}
 <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+
+
+<script src="https://unpkg.com/vue-gallery-slideshow@1.4.2/dist/js/vue-gallery-slideshow.min.js"></script>
+<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+
+
+
+
 {% endblock galeria %}
 
-{% block titulo %}Galería{% endblock titulo %}
+{% block titulo %}Galería - AAT{% endblock titulo %}
 
 
 
 
 {% block body %}
-<section class="section" id="galery">
+<div id="app">
+<div class="section">
+<div class="container">
 
-  <p class="heading">Galería {{ galeria.titulo }}</p>
-  <div class="gallery-image">
-    <div class="img-box">
-      <img data-enlargeable width="100" style="cursor: zoom-in" src="https://picsum.photos/350/250?image=444" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Library</p>
-          <p class="opacity-low">Architect Design</p>
-        </div>
-      </div> 
-    </div>
+  <img class="image1" v-for="(image, i) in images" :src="image" @click="index = i">
+  <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
   </div>
+</div>
+</div>
 
-</section>
+
+<script>
+new Vue({
+  el: '#app',
+  components: {
+    VueGallerySlideshow
+  },
+  data: {
+    images: [ 
+    "{% static 'images/galeria/12065923_486816414833368_4008555258445682909_n.jpg' %}",
+      
+"{% static 'images/galeria/12196158_486397731541903_1309748739290832591_n.jpg' %}",
+"{% static 'images/galeria/12196294_486397328208610_812399382854203389_n.jpg' %}",
+"{% static 'images/galeria/184875_392882974121543_1768297921_n.jpg' %}",
+"{% static 'images/galeria/2014-04-26-16.12.34.jpg' %}",
+"{% static 'images/galeria/23722279_825020904346249_241603969706974844_n.jpg' %}",
+"{% static 'images/galeria/24293941_832290763619263_4275674425100239036_n.jpg' %}",
+"{% static 'images/galeria/41871781_1019412974907040_6391613168463904768_n.jpg' %}",
+"{% static 'images/galeria/45705378_333079064152561_1190148739235315712_n-1.jpg' %}",
+"{% static 'images/galeria/45708005_1048102182038119_587221015474470912_n.jpg' %}",
+"{% static 'images/galeria/76727050_2459041314164949_20531322359382016_n.jpg' %}",
+"{% static 'images/galeria/CAI-MAR-DEL-PLATA.jpg' %}",
+"{% static 'images/galeria/CHIVILCOY-2015.jpg' %}",
+"{% static 'images/galeria/DSC_0014-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0017-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0022-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0042-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0049-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0074-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0079-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0108-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0114-1-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0135-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0144-scaled.jpg' %}",
+"{% static 'images/galeria/DSC_0145-scaled.jpg' %}",
+"{% static 'images/galeria/IMG_0622-scaled.jpg' %}",
+"{% static 'images/galeria/IMG_0645-scaled.jpg' %}",
+"{% static 'images/galeria/IMG_0650-scaled.jpg' %}",
+"{% static 'images/galeria/IMG_0689.jpg' %}",
+"{% static 'images/galeria/IMG_2530-scaled.jpg' %}",
+"{% static 'images/galeria/IMG_2537-scaled.jpg' %}",
+"{% static 'images/galeria/IMG_2558.jpg' %}",
+"{% static 'images/galeria/IMG_2701.jpg' %}",
+"{% static 'images/galeria/IMG_9436-scaled.jpg' %}",
+"{% static 'images/galeria/MG_9446-scaled.jpg' %}",
+"{% static 'images/galeria/MG_9463-scaled.jpg' %}",
+"{% static 'images/galeria/Tandil-1-scaled.jpg' %}",
+"{% static 'images/galeria/Tandil-2-scaled.jpg' %}",
+"{% static 'images/galeria/WP_20140920_038-scaled.jpg' %}",
+"{% static 'images/galeria/WP_20141213_001-scaled.jpg' %}",
+"{% static 'images/galeria/WP_20141213_004-scaled.jpg' %}",
+"{% static 'images/galeria/WP_20150509_003-scaled.jpg' %}",
+"{% static 'images/galeria/WP_20150509_026-scaled.jpg' %}",
+"{% static 'images/galeria/WP_20150704_013-scaled.jpg' %}",
+    ],
+    index: null
+  }
+})
+
+</script>
 
 
 

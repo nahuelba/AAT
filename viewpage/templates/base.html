@@ -3,161 +3,175 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/tortuga.png' %}"/>
-    
-    <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    {% block galeria %}
-    {% endblock galeria %} 
 
-    {% block js %}
-    {% endblock js %}
-    
-    <title>{% block titulo %}{% endblock titulo %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/tortuga.png' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block galeria %}
+  {% endblock galeria %}
+
+  {% block js %}
+  {% endblock js %}
+
+  <title>{% block titulo %}{% endblock titulo %}</title>
 
 
-   
+
 
 </head>
 
 <body>
-{% comment %} navbar {% endcomment %}
-<section class="section">
-<nav class="navbar is-fixed-top is-spaced is-transparent border-bottom" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      
+  {% comment %} navbar {% endcomment %}
+  <section class="section">
+    <nav class="navbar is-fixed-top is-spaced is-transparent border-bottom" role="navigation"
+      aria-label="main navigation">
+      <div class="navbar-brand">
+
         <img id='logo' src="{% static 'images/logo-aat.png' %}">
-  
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href={% url 'inicio' %}>
-          Inicio
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Nosotros
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href={% url 'inicio' %}>
+            Inicio
           </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="{% url 'quienes-somos' %}">
-              Quiénes somos
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Nosotros
             </a>
-            <a class="navbar-item" href= "{% url 'comision-directiva' %}">
-              Comisión directiva
-            </a>
-            <a class="navbar-item" href="{% url 'galeria' %}">
-              Galeria
-            </a>
-            
-    
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="{% url 'quienes-somos' %}">
+                Quiénes somos
+              </a>
+              <a class="navbar-item" href="{% url 'comision-directiva' %}">
+                Comisión directiva
+              </a>
+              <a class="navbar-item" href="{% url 'galeria' %}">
+                Galeria
+              </a>
+
+
+            </div>
           </div>
-  </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Tartamudez
-          </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="{% url 'actividades' %}">
-              Actividades
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Tartamudez
             </a>
-            <a class="navbar-item" href="{% url 'profesionales' %}">
-              Profesionales
-            </a>
-            <a class="navbar-item" href="{% url 'formacion' %}">
-              Formación
-            </a>
-            <a class="navbar-item" href="{% url 'guias-folletos' %}">
-              Guías y folletos
-            </a>
-            <a class="navbar-item" href="{% url 'preguntas-frecuentes' %}">
-              Preguntas frecuentes
-            </a>
-        </div>
-        </div>
-        <a class="navbar-item" href="{% url 'socios-suscriptores' %}">
-          Socios/Suscriptores
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="{% url 'actividades' %}">
+                Actividades
+              </a>
+              <a class="navbar-item" href="{% url 'profesionales' %}">
+                Profesionales
+              </a>
+              <a class="navbar-item" href="{% url 'formacion' %}">
+                Formación
+              </a>
+              <a class="navbar-item" href="{% url 'guias-folletos' %}">
+                Guías y folletos
+              </a>
+              <a class="navbar-item" href="{% url 'preguntas-frecuentes' %}">
+                Preguntas frecuentes
+              </a>
+            </div>
+          </div>
+          <a class="navbar-item" href="{% url 'socios-suscriptores' %}">
+            Socios/Suscriptores
           </a>
           <a class="navbar-item">
-          Contacto
+            Contacto
           </a>
-        <a class="button is-medium is-success is-outlined" id="donar">
-          Donar
+          <a class="button is-medium is-success is-outlined" id="donar">
+            Donar
           </a>
-          </div>
+        </div>
       </div>
-    </div>
-  </nav>
+      </div>
+    </nav>
   </section>
 
   {% block body %}{% endblock body %}
 
 
 
-{% comment %} <!-------------Footer-----------------------> {% endcomment %}
+  {% comment %}
+  <!-------------Footer-----------------------> {% endcomment %}
 
 
   <footer class="footer" style="background-color:#222222;">
     <div class="container">
       <div class="columns">
-        <div class="column is-two-fifths is-hidden-mobile"> 
-        <span class="copyright">
-© 2021 Asociación Argentina de Tartamudez. Todos los derechos reservados. Política de Privacidad. Creado por Nahuel Barreiro </span>
-          <br /> 
-        <br />Correo: <a href="mailto:info@aat.org.ar">info@aat.org.ar</a>
-        <br /><br />Telefono: +54 9 11 3277 3093
+        <div class="column is-two-fifths is-hidden-mobile">
+          <span class="copyright">
+            © 2021 Asociación Argentina de Tartamudez. Todos los derechos reservados. Política de Privacidad. Creado por
+            Nahuel Barreiro </span>
+          <br />
+          <br />Correo: <a href="mailto:info@aat.org.ar">info@aat.org.ar</a>
+          <br /><br />Telefono: +54 9 11 3277 3093
         </div>
-        
 
-        
+
+
+        <div class="column">
+
+          <h1><strong>Enlaces útiles</strong><h1>
+
+          <br />
+          <ul>
+            <li class="mb-2"> <a href="/test/">Test de tartamudez</a></li>
+            <li class="mb-2">
+              <a href="https://es-la.facebook.com/www.delegacioncordoba/">Delegación Córdoba de la Asociación Argentina
+                de Tartamudez</a></li>
+            <li class="mb-2"> <a href="https://www.facebook.com/aatdelegacionpatagonica/">Delegación Patagónica de la Asociación
+                Argentina de Tartamudez</a></li>
+            <li class="mb-2"> <a href="https://www.isastutter.org/">International Stuttering Association</a></li>
+
+            <li class="mb-2"> <a href="https://www.theifa.org/">International Fluency Association</a></li>
+          </ul>
+        </div>
+
         <div class="column"> 
-        <div class="block">
-        <strong>Enlaces útiles</strong>
-        </div>
-        <br />
-        <ul>
-        <li> <a href="/donate/">Test de tartamudez</a>
-        <li> 
-        <a href="/workworkwork/">Delegación Córdoba de la Asociación Argentina de Tartamudez</a>
-        <li> <a href="/blog/">International Stuttering Association</a>
-        <li> <a href="/legal/">Delegación Patagónica de la Asociación Argentina de Tartamudez</a>
-        <li> <a href="/legal/">International Fluency Association</a>
-        </ul></div>
-        
-        <div class="column "> <strong>Social</strong>
-        <br /><ul>
-        <li> <a href="https://twitter.com/disfluencia_arg" target="_blank">Twitter</a>
-        <li> <a href="https://www.facebook.com/www.aat.org.ar" target="_blank">Facebook</a>
-        <li> <a href="https://www.instagram.com/tartamudez/" target="_blank">Instagram</a>
-        <li> <a href="https://www.youtube.com/channel/UC6xWZs49PHYpI8eJ6Sv2C4Q/videos" target="_blank">Youtube</a>
-        </ul>
+        <h1>   <strong>Social</strong></h1>
+          <br />
+          <ul>
+            <li class="mb-2"> <a href="https://twitter.com/disfluencia_arg" target="_blank">Twitter</a>
+            <li class="mb-2"> <a href="https://www.facebook.com/www.aat.org.ar" target="_blank">Facebook</a>
+            <li class="mb-2"> <a href="https://www.instagram.com/tartamudez/" target="_blank">Instagram</a>
+            <li class="mb-2"> <a href="https://www.youtube.com/channel/UC6xWZs49PHYpI8eJ6Sv2C4Q/videos" target="_blank">Youtube</a>
+          </ul>
         </div>
 
-    
-        
-        
-        <div class="column is-two-fifths is-hidden-tablet"> 
-        <span class="copyright">
-© 2021 Asociación Argentina de Tartamudez. Todos los derechos reservados. Política de Privacidad. Creado por Nahuel Barreiro </span>
-          <br /> 
-        <br />Correo: <a href="mailto:info@aat.org.ar">info@aat.org.ar</a>
-        <br /><br />Telefono: +54 9 11 3277 3093
+
+
+
+        <div class="column is-two-fifths is-hidden-tablet">
+          <span class="copyright">
+            © 2021 Asociación Argentina de Tartamudez. Todos los derechos reservados. Política de Privacidad. Creado por
+            Nahuel Barreiro </span>
+          <br />
+          <br />Correo: <a href="mailto:info@aat.org.ar">info@aat.org.ar</a>
+          <br /><br />Telefono: +54 9 11 3277 3093
         </div>
-        </div></div>
-        
-        </footer>
-  
-  </body>
+      </div>
+    </div>
+
+  </footer>
+
+</body>
+
 </html>
