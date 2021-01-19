@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Donar - AAT
+{% endblock titulo %}
+
+{% block body %}
+
+
+
+<section class="section">
+<div class="container">
+ <div class="content is-medium">
+<strong>DATOS DE LA CUENTA:</strong>
+            <p>BANCO NACIÓN</br>
+                Asociación Argentina de Tartamudez</br>
+                CAJA DE AHORRO (Cuenta especial en pesos)</br>
+                Número de cuenta: 130857347</br>
+                CBU: 0110013640001308573476</br>
+                CUIT: 30-69222582-8</p>
+
+            <p>¡Se parte de una lucha colectiva!</br>
+                Muchas gracias</p></div>
+            
+
+<div class="column is-half">
+
+<h2 class="title is-4">Además si tenés ganas dejanos un mensaje</h2>
+
+                <form method='post'>
+                    {% csrf_token %}
+                    <div class="field">
+                        <label class="label has-text-left">Nombre</label>
+                        <div class="control">
+                            {{form.nombre}}
+                        </div>
+                      </div>
+                      
+                
+                      
+                      <div class="field">
+                        <label class="label has-text-left">Email</label>
+                        <div class="control">
+                            {{form.mail}}
+                          </span>
+                </div>
+                </div>
+                
+                      
+                      <div class="field">
+                        <label class="label has-text-left">Mensaje</label>
+                        <div class="control">
+                            {{form.mensaje}}
+                        </div>
+                      </div>
+                   
+                      <div class="field is-grouped">
+                        <div class="control">
+                          <button class="button is-success is-fullwidth has-text-weight-medium is-medium">Enviar Mensaje</button>
+                        </div>
+                      </div>
+                </form>
+
+
+            
+            </div>
+            </div>
+</section>
+{% endblock body %}

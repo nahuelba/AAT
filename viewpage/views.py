@@ -1,10 +1,10 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.views.generic import TemplateView, ListView, CreateView
 from .forms import SociosSuscriptoresForm, ContactoForm
 from .models import SociosSuscriptoresModel
 from django.core.mail import send_mail
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage,BadHeaderError
 
 
 # Create your views here.
@@ -92,5 +92,24 @@ def contactView(request):
 
 def successView(request):
     return render(request, "success.html")
+
+
+def donar(request):
+    if request.method == 'GET':
+        form = ContactoForm()
+    else:
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            subject = "Nuevo mensaje de donacion de parte de "+  request.POST['nombre']
+            email_from= settings.EMAIL_HOST_USER
+            content = "Recibimos un mensaje de donación de parte de " + request.POST['nombre'] + " su mail de contacto es" + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
+            recipient_list=["nahuelbarreiro@gmail.com"]
+            try:
+                send_mail(subject, content, email_from, recipient_list)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "donar.html", {'form': form})
 
 
