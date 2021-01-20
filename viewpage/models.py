@@ -16,7 +16,6 @@ class SociosSuscriptoresModel(models.Model):
     nacimiento=models.DateField()
     tipo_de_persona=models.CharField(max_length=100,choices=tipopersona, blank=True, null=True, default="Socio persona que tartamudea")
     mensaje=models.TextField(blank=True, null=True)
-    Comprobante_de_pago=models.ImageField(upload_to='images', default=None, blank=True, null=True)
 
     def __str__(self):
         return self.nombre

@@ -26,7 +26,6 @@ class SociosSuscriptoresForm(forms.ModelForm):
         self.fields['nacimiento'].widget.attrs['class'] = 'input'
         self.fields['lugar_de_residencia'].widget.attrs['class'] = 'input'
         self.fields['mensaje'].widget.attrs['class'] = 'textarea'
-        self.fields['Comprobante_de_pago'].widget.attrs['class'] = 'file-input'
 
 
     
