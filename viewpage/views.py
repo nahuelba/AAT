@@ -72,7 +72,7 @@ def SociosSuscriptoresView(request):
             server = smtplib.SMTP("smtp.aat.org.ar", 587)#port
             server.ehlo()
             server.starttls()
-            server.login('mensajeria@aat.org.ar', 'webaatargentina')
+            server.login()
             body = "Nombre: " + request.POST["nombre"] + "\n" + "apellido: " + request.POST["apellido"] + "\n" + "mail: " + request.POST["mail"] + "\n" + "telefono: " + request.POST["telefono"] + "\n" + "pais: " + request.POST["pais"] + "\n" + "provincia: " + request.POST["provincia"] + "\n" + "lugar de residencia: " + request.POST["lugar_de_residencia"] + "\n" + "nacimiento: " + request.POST["nacimiento"] + "\n" + "tipo de persona: " + request.POST["tipo_de_persona"] + "\n" + "mensaje: " + request.POST["mensaje"]
             msg = MIMEText(body,'plain','utf-8')
             subject = "Felicidades! Nuevo " + request.POST["Socio_suscriptor"]
@@ -127,7 +127,7 @@ def contactView(request):
             server = smtplib.SMTP("smtp.aat.org.ar", 587)#port
             server.ehlo()
             server.starttls()
-            server.login('mensajeria@aat.org.ar', 'webaatargentina')
+            server.login()
             body = "Recibimos una consulta de parte de " + request.POST['nombre'] + " su mail de contacto es " + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
             msg = MIMEText(body,'plain','utf-8')
             subject = "Nueva consulta de parte de "+  request.POST['nombre']
@@ -180,7 +180,7 @@ def donar(request):
             server = smtplib.SMTP("smtp.aat.org.ar", 587)#port
             server.ehlo()
             server.starttls()
-            server.login('mensajeria@aat.org.ar', 'webaatargentina')
+            server.login()
             body = "Recibimos un mensaje de donacion de parte de " + request.POST['nombre'] + " su mail de contacto es " + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
             recipient_list=["nahuelbarreiro@gmail.com"]
             msg = MIMEText(body,'plain','utf-8')
