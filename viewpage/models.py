@@ -14,7 +14,7 @@ class SociosSuscriptoresModel(models.Model):
     provincia=models.CharField(max_length=100,choices=provincias, default="CABA")
     lugar_de_residencia=models.CharField(max_length=100)
     nacimiento=models.DateField()
-    tipo_de_persona=models.CharField(max_length=100,choices=tipopersona, blank=True, null=True, default="Socio persona que tartamudea")
+    tipo_de_persona=models.CharField(max_length=100,choices=tipopersona, default="Socio persona que tartamudea")
     mensaje=models.TextField(blank=True, null=True)
 
     def __str__(self):

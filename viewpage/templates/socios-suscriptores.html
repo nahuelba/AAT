@@ -10,11 +10,28 @@ Socios y suscriptores - AAT
 {% block js %}
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-pricingtable/dist/css/bulma-pricingtable.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 
 {% endblock js %}
 
 
 {% block body %}
+
+<script>
+    $(document).ready(function () {
+    $("#id_pais").change(function () {
+        var val = $(this).val();
+        if (val !== "Argentina") {
+            $("#id_provincia").hide();
+            
+        }
+        else{
+            $("#id_provincia").show();
+        }
+    });
+});
+</script>
 
 
 <section class="section">
@@ -50,9 +67,9 @@ Socios y suscriptores - AAT
             <strong> Para inscribirte como socio debes:</strong>
             <ol type="1">
                 <li>Elegir una opción detallada más abajo.</li>
-                <li>Realizar un depósito/transferencia según el monto que corresponda.</li>
-                <li>Llenar el formulario pertinente adjuntando el comprobante de pago.</li>
+                <li>Llenar el formulario.</li>
                 <li>Enviar el formulario.</li>
+                <li>En breve le responderemos.</li>
                 <li>Por cualquier consulta comunicarse a info@aat.org.ar</li>
 
             </ol>
@@ -214,6 +231,8 @@ Socios y suscriptores - AAT
                             
                        
                     </div>
+                   
+
 
                     <div class="field">
                         <label class="label">Mensaje</label>
@@ -221,12 +240,22 @@ Socios y suscriptores - AAT
                             
                        {{form.mensaje}}
                     </div>
+                  
+                
                 
                     
 
 
-
-
+                <div class="field">
+                      <div class="g-recaptcha" data-sitekey="6LcuBzgaAAAAACeb28NBQLieHIM-YDM64_drzPjM"></div>
+                      
+                      </div>
+                  {% if messages %}
+                    {% for message in messages %}
+                    
+                    <div class="notification {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
 
 
                 <input type="submit" class="button is-success" value="Enviar">

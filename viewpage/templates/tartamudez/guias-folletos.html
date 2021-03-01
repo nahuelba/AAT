@@ -16,7 +16,7 @@ Guías y folletos - AAT
 {% block body %}
 
 
-<section class="section">
+<section class="section" style="margin:-1%;">
     <div class="container">
         <div id="app">
             <!-- Buefy components goes here -->
@@ -243,16 +243,7 @@ Guías y folletos - AAT
                 </section>
             </template>
 
-            <script>
-                export default {
-                    data() {
-                        return {
-                            activeTab: 0,
-                            showBooks: false
-                        }
-                    }
-                }
-            </script>
+            
 
 
 
@@ -264,7 +255,7 @@ Guías y folletos - AAT
     </div>
 </section>
 
-<script src="https://unpkg.com/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
 <!-- Full bundle -->
 <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
 
@@ -274,7 +265,13 @@ Guías y folletos - AAT
 
 <script>
     new Vue({
-        el: '#app'
+        el: '#app',
+        data() {
+                return {
+                    activeTab: 0,
+                    showBooks: false
+                }
+            }
     })
 </script>
 

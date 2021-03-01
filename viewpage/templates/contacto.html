@@ -8,10 +8,10 @@ Contacto - AAT
 
 
 
-<section class="hero is-fullheight">
+<section class="hero is-fullheight" style="margin-top:2%">
     <div class="hero-body">
         <div class="container has-text-centered">
-            <div class="columns is-8 is-variable ">
+            <div class="columns is-8">
                 <div class="column is-two-thirds has-text-left">
                     <h1 class="title is-1">Contáctanos</h1>
                     <p class="is-size-4">¿Necesita ayuda? Estamos a tu disposición. </br>Contáctanos a traves del formulario o nuestro número telefónico.</p>
@@ -56,7 +56,18 @@ Teléfono:
                             {{form.mensaje}}
                         </div>
                       </div>
-                   
+                      <div class="field">
+                      <div class="g-recaptcha" data-sitekey="6LcuBzgaAAAAACeb28NBQLieHIM-YDM64_drzPjM"></div>
+                      
+                      </div>
+                      
+                      {% if messages %}
+                    {% for message in messages %}
+                    
+                    <div class="notification {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                      
                       <div class="field is-grouped">
                         <div class="control">
                           <button class="button is-success is-fullwidth has-text-weight-medium is-medium">Enviar Mensaje</button>
@@ -67,7 +78,7 @@ Teléfono:
                 
                
             </div>
-            </div>
+            
         </div>
     </div>
 </section>

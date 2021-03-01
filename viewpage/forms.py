@@ -26,6 +26,14 @@ class SociosSuscriptoresForm(forms.ModelForm):
         self.fields['nacimiento'].widget.attrs['class'] = 'input'
         self.fields['lugar_de_residencia'].widget.attrs['class'] = 'input'
         self.fields['mensaje'].widget.attrs['class'] = 'textarea'
+        
+        #self.fields['pais'].widget = TextInput(attrs={
+         #   'id': 'pais'})
+            
+        #self.fields['provincia'].widget = TextInput(attrs={
+         #   'id': 'provincia'
+            
+        #})
 
 
     

@@ -1,0 +1,7 @@
+__pycache__
+media/
+public/
+tmp/
+.htaccess/
+aatorgar_sqlite
+passenger_wsgi.py

@@ -1,0 +1,91 @@
+@media screen and (min-width: 1024px) {
+.navbar{
+
+  height: 90px;
+}
+
+.navbar-item, .navbar-link{
+  letter-spacing: 0.1rem;
+  color: #838383;
+  font-weight: 500;
+  line-height: 1.07;
+  font-size: 1.1rem;
+
+}
+
+#logo{
+  height: 70px;
+  width: auto;
+  
+
+
+}  
+
+
+
+
+}
+@media only screen and (max-width: 750px) {
+ #logo{
+  height: 50px;
+  width: auto;
+
+}  
+
+  
+}
+#fillX
+{
+    background:red;
+    width:100%;
+    opacity:0.5;
+}
+
+
+#childXFill
+{
+    background:blue;
+    width:100%;
+    padding:10px;
+    opacity:0.5;
+}
+
+.imagen-portada{
+  background-size: cover;
+}
+
+.cont {
+    max-width: 1110px;
+    margin: 0 auto;
+    overflow-x: hidden; /* THIS */
+}
+body, html { overflow-x:hidden; }
+
+.footer, .footer strong, .footer a{
+  background-color: #222222;
+  color: #E9E9E9;
+  font-size: 16px;
+  line-height: 22px;
+  
+}
+/* .footer strong, .footer a{
+  padding-bottom: 1.5rem;
+} */
+
+
+.section{
+    margin-top: calc(40px + 1.2em);
+}
+
+#donar{
+  letter-spacing: 0.1rem;
+}
+
+.border-bottom{
+
+    border-bottom: 1px solid #ebeaeb;
+}
+
+.is-horizontal-center {
+  justify-content: center;
+}

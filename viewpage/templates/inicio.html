@@ -3,24 +3,30 @@
 {% extends 'base.html' %} 
 {% load static %}
 
-{% block titulo %}Inicio{% endblock titulo %}
+{% block titulo %}Inicio - AAT{% endblock titulo %}
 
 
 
 {% block body %}
-<div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v9.0&appId=193535731924067&autoLogAppEvents=1" nonce="TW4woDAe"></script>
 
-<section class="hero is-info is-large" style="background-image: url('{% static 'images/portada.jpg' %}'); background-repeat: no-repeat;  background-size: cover;  
+
+<div id="fillX">
+    <div id="childXFill">
+    </div>
+</div>
+
+
+<section class="hero is-info is-large" style="background-image: url('{% static 'images/portada.jpg' %}'); background-repeat: no-repeat;  background-size: cover; margin-top:0px !important;  
 "
 >
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1 is-uppercase is-family-monospace pb-6" style="color: rgba(92, 231, 111, 0.61);">
+      <h1 class="title is-1 is-size-4-mobile is-uppercase is-family-monospace pb-6" style="color: rgba(92, 231, 111, 0.61);">
         
 Tomar conciencia, conocer...
       </h1>
-      <h2 class="subtitle is-3 is-family-primary pb-6" style="color: rgba(92, 231, 111, 0.61);">
+      <h2 class="subtitle is-3 is-size-4-mobile is-family-primary pb-6" style="color: rgba(92, 231, 111, 0.61);">
         Para generar cambios, para desmitificar lo negativo, el prejuicio y la burla. <br />Lograr que sea un hecho natural y público.
       </h2>
       <h2 class="subtitle pt-5">
@@ -32,7 +38,7 @@ Tomar conciencia, conocer...
 
 </section>
 <section class="pt-5">
-<div class="container is-max-desktop">
+<div class="container">
 <div class="card">
   <div class="card-content">
     <p class="title has-text-centered is-spaced has-text-weight-medium">

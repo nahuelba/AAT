@@ -1,10 +1,19 @@
+import json
+import urllib.request
+import smtplib
+
 from django.shortcuts import render,redirect,HttpResponse
 from django.views.generic import TemplateView, ListView, CreateView
+from django.conf import settings
+from django.contrib import messages
+
+
 from .forms import SociosSuscriptoresForm, ContactoForm
 from .models import SociosSuscriptoresModel
-from django.core.mail import send_mail
-from django.conf import settings
-from django.core.mail import EmailMessage,BadHeaderError
+
+from email.mime.text import MIMEText
+from email.header import Header
+
 
 
 # Create your views here.
@@ -45,26 +54,48 @@ class PreguntasFrecuentesView(TemplateView):
 def SociosSuscriptoresView(request):
     form = SociosSuscriptoresForm(request.POST or None)
     if form.is_valid():
-        form.save()
-        subject="Felicidades! Nuevo " + request.POST["Socio_suscriptor"]
-        message="Nombre: " + request.POST["nombre"] + "\n" + "apellido: " + request.POST["apellido"] + "\n" + "mail: " + request.POST["mail"] + "\n" + "telefono: " + request.POST["telefono"] + "\n" + "pais: " + request.POST["pais"] + "\n" + "provincia: " + request.POST["provincia"] + "\n" + "lugar de residencia: " + request.POST["lugar_de_residencia"] + "\n" + "nacimiento: " + request.POST["nacimiento"] + "\n" + "tipo de persona: " + request.POST["tipo_de_persona"] + "\n" + "mensaje: " + request.POST["mensaje"]
         
-
-        email_from=settings.EMAIL_HOST_USER
-        recipient_list=["nahuelbarreiro@gmail.com"]
-
-        # image = request.FILES['Comprobante_de_pago']
-        # filename = 'C:/Users/Arvan Bishwas/PycharmProjects/SendingEmails' + image.url
-
-        # attachment  =open(filename,'rb')
-
-
-        email = EmailMessage(subject, message, email_from, recipient_list)
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY, 'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req =  urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
         
-        email.send()
-
+        if result['success']:
+            form.save()
+            server = smtplib.SMTP("smtp.aat.org.ar", 587)#port
+            server.ehlo()
+            server.starttls()
+            server.login('mensajeria@aat.org.ar', 'webaatargentina')
+            body = "Nombre: " + request.POST["nombre"] + "\n" + "apellido: " + request.POST["apellido"] + "\n" + "mail: " + request.POST["mail"] + "\n" + "telefono: " + request.POST["telefono"] + "\n" + "pais: " + request.POST["pais"] + "\n" + "provincia: " + request.POST["provincia"] + "\n" + "lugar de residencia: " + request.POST["lugar_de_residencia"] + "\n" + "nacimiento: " + request.POST["nacimiento"] + "\n" + "tipo de persona: " + request.POST["tipo_de_persona"] + "\n" + "mensaje: " + request.POST["mensaje"]
+            msg = MIMEText(body,'plain','utf-8')
+            subject = "Felicidades! Nuevo " + request.POST["Socio_suscriptor"]
+            msg["Subject"] = Header(subject, 'utf-8')
+            From = 'mensajeria@aat.org.ar'
+            to = 'info@aat.org.ar'
+            msg["From"] = Header(From, 'utf-8')
+            msg["To"] = Header(to, 'utf-8')
+            txt = msg.as_string()
+            
+            server.sendmail(From, to, txt)
+            return redirect('success')
+        else:
+            messages.error(request, 'reCAPTCHA invalido, completelo de nuevo')
+            #return redirect('socios-suscriptores')
+        
+       
+            
+        
+        
+            
     
-        form =SociosSuscriptoresForm()
+        
 
     context = {
         'form':form
@@ -73,43 +104,103 @@ def SociosSuscriptoresView(request):
     return render(request, "socios-suscriptores.html", context)
 
 def contactView(request):
-    if request.method == 'GET':
-        form = ContactoForm()
-    else:
-        form = ContactoForm(request.POST)
-        if form.is_valid():
+    form = ContactoForm(request.POST or None)
+    
+   
+
+    if form.is_valid():
+        
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY, 'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req =  urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        
+        if result['success']:
             form.save()
+            server = smtplib.SMTP("smtp.aat.org.ar", 587)#port
+            server.ehlo()
+            server.starttls()
+            server.login('mensajeria@aat.org.ar', 'webaatargentina')
+            body = "Recibimos una consulta de parte de " + request.POST['nombre'] + " su mail de contacto es " + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
+            msg = MIMEText(body,'plain','utf-8')
             subject = "Nueva consulta de parte de "+  request.POST['nombre']
-            email_from= settings.EMAIL_HOST_USER
-            content = "Recibimos una consulta de parte de " + request.POST['nombre'] + " su mail de contacto es" + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
-            recipient_list=["nahuelbarreiro@gmail.com"]
-            try:
-                send_mail(subject, content, email_from, recipient_list)
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+            msg["Subject"] = Header(subject, 'utf-8')
+            From = 'mensajeria@aat.org.ar'
+            to = 'info@aat.org.ar'
+            msg["From"] = Header(From, 'utf-8')
+            msg["To"] = Header(to, 'utf-8')
+            txt = msg.as_string()
+            server.sendmail(From, to, txt)
             return redirect('success')
-    return render(request, "contacto.html", {'form': form})
+        else:
+            messages.error(request, 'reCAPTCHA invalido, completelo de nuevo')
+            #return redirect('contacto')
+        
+        #form.save()
+        
+        
+        
+        
+    context = {
+        'form':form
+    }
+    return render(request, "contacto.html", context)
 
 def successView(request):
     return render(request, "success.html")
 
 
 def donar(request):
-    if request.method == 'GET':
-        form = ContactoForm()
-    else:
-        form = ContactoForm(request.POST)
-        if form.is_valid():
+    
+    form = ContactoForm(request.POST or None)
+    if form.is_valid():
+        
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY, 'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req =  urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        
+        
+        if result['success']:
             form.save()
-            subject = "Nuevo mensaje de donacion de parte de "+  request.POST['nombre']
-            email_from= settings.EMAIL_HOST_USER
-            content = "Recibimos un mensaje de donación de parte de " + request.POST['nombre'] + " su mail de contacto es" + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
+            server = smtplib.SMTP("smtp.aat.org.ar", 587)#port
+            server.ehlo()
+            server.starttls()
+            server.login('mensajeria@aat.org.ar', 'webaatargentina')
+            body = "Recibimos un mensaje de donacion de parte de " + request.POST['nombre'] + " su mail de contacto es " + request.POST['mail'] + "\n Y su mensaje es: " + request.POST['mensaje'] 
             recipient_list=["nahuelbarreiro@gmail.com"]
-            try:
-                send_mail(subject, content, email_from, recipient_list)
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+            msg = MIMEText(body,'plain','utf-8')
+            subject = "Nuevo mensaje de donacion de parte de "+  request.POST['nombre']
+            msg["Subject"] = Header(subject, 'utf-8')
+            From = 'mensajeria@aat.org.ar'
+            to = 'info@aat.org.ar'
+            msg["From"] = Header(From, 'utf-8')
+            msg["To"] = Header(to, 'utf-8')
+            txt = msg.as_string()
+            
+            server.sendmail(From, to, txt)
             return redirect('success')
+        else:
+            messages.error(request, 'reCAPTCHA invalido, completelo de nuevo')
+            #return redirect('donar')
+        
+        
+        
+        
     return render(request, "donar.html", {'form': form})
 
 

@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/tortuga.png' %}" />
 
-  <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   {% block galeria %}
   {% endblock galeria %}
@@ -19,6 +19,11 @@
   {% endblock js %}
 
   <title>{% block titulo %}{% endblock titulo %}</title>
+  
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
 
 
 
@@ -27,7 +32,8 @@
 
 <body>
   {% comment %} navbar {% endcomment %}
-  <section class="section">
+  <section class="section" style="margin:0;
+    padding: 0;">
     <nav class="navbar is-fixed-top is-spaced is-transparent border-bottom" role="navigation"
       aria-label="main navigation">
       <div class="navbar-brand">
@@ -85,14 +91,18 @@
               <a class="navbar-item" href="{% url 'guias-folletos' %}">
                 Guías y folletos
               </a>
+              <a class="navbar-item" href="{% url 'Inicio_biblioteca' %}">
+                Biblioteca
+              </a>
+              <a class="navbar-item" href="{% url 'socios-suscriptores' %}">
+                Socios/Suscriptores
+                </a>
               <a class="navbar-item" href="{% url 'preguntas-frecuentes' %}">
                 Preguntas frecuentes
               </a>
             </div>
           </div>
-          <a class="navbar-item" href="{% url 'socios-suscriptores' %}">
-            Socios/Suscriptores
-          </a>
+          
           <a class="navbar-item" href="{% url 'contacto' %}">
             Contacto
           </a>
@@ -102,6 +112,33 @@
         </div>
       </div>
       </div>
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+</script>
     </nav>
   </section>
 
@@ -133,15 +170,15 @@
 
           <br />
           <ul>
-            <li class="mb-2"> <a href="/test/">Test de tartamudez</a></li>
+            
             <li class="mb-2">
-              <a href="https://es-la.facebook.com/www.delegacioncordoba/">Delegación Córdoba de la Asociación Argentina
+              <a href="https://es-la.facebook.com/www.delegacioncordoba/" target="_blank">Delegación Córdoba de la Asociación Argentina
                 de Tartamudez</a></li>
-            <li class="mb-2"> <a href="https://www.facebook.com/aatdelegacionpatagonica/">Delegación Patagónica de la Asociación
+            <li class="mb-2"> <a href="https://www.facebook.com/aatdelegacionpatagonica/" target="_blank">Delegación Patagónica de la Asociación
                 Argentina de Tartamudez</a></li>
-            <li class="mb-2"> <a href="https://www.isastutter.org/">International Stuttering Association</a></li>
+            <li class="mb-2"> <a href="https://www.isastutter.org/" target="_blank">International Stuttering Association</a></li>
 
-            <li class="mb-2"> <a href="https://www.theifa.org/">International Fluency Association</a></li>
+            <li class="mb-2"> <a href="https://www.theifa.org/" target="_blank">International Fluency Association</a></li>
           </ul>
         </div>
 
@@ -154,6 +191,14 @@
             <li class="mb-2"> <a href="https://www.instagram.com/tartamudez/" target="_blank">Instagram</a>
             <li class="mb-2"> <a href="https://www.youtube.com/channel/UC6xWZs49PHYpI8eJ6Sv2C4Q/videos" target="_blank">Youtube</a>
           </ul>
+        </div>
+        
+        <div class="column">
+            <h1>   <strong>Prueba nuestra app</strong></h1>
+            <a href="https://play.google.com/store/apps/details?id=com.aatapp.dn.aat&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank"><img alt="Disponible en Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/es-419_badge_web_generic.png" class=" lazy-loaded" data-src="https://play.google.com/intl/en_us/badges/static/images/badges/es-419_badge_web_generic.png"></a>
+            <p>ó</p>
+           <a href="http://test.aat.org.ar/" target="_blank" class="button is-success mt-5">Test de tartamudez</a>
+            
         </div>
 
 

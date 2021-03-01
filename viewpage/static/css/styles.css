@@ -12,14 +12,54 @@
   font-size: 1.1rem;
 
 }
+
+#logo{
+  height: 70px;
+  width: auto;
+  
+
+
+}  
+
+
+
+
+}
+@media only screen and (max-width: 750px) {
+ #logo{
+  height: 50px;
+  width: auto;
+
+}  
+
+  
+}
+#fillX
+{
+    background:red;
+    width:100%;
+    opacity:0.5;
+}
+
+
+#childXFill
+{
+    background:blue;
+    width:100%;
+    padding:10px;
+    opacity:0.5;
+}
+
 .imagen-portada{
   background-size: cover;
 }
 
-
-
-
+.cont {
+    max-width: 1110px;
+    margin: 0 auto;
+    overflow-x: hidden; /* THIS */
 }
+body, html { overflow-x:hidden; }
 
 .footer, .footer strong, .footer a{
   background-color: #222222;
@@ -32,12 +72,10 @@
   padding-bottom: 1.5rem;
 } */
 
-#logo{
-  height: 70px;
-  width: auto;
 
-}  
-
+.section{
+    margin-top: calc(40px + 1.2em);
+}
 
 #donar{
   letter-spacing: 0.1rem;
@@ -50,4 +88,8 @@
 
 .is-horizontal-center {
   justify-content: center;
+}
+
+#volver:hover{
+  background-color: grey;
 }

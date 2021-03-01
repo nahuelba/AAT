@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/tortuga.png' %}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Iniciar sesion - Biblioteca - AAT</title>
+</head>
+<body>
+<section class="hero is-fullheight" style="background-image: url('https://i.ibb.co/Fb9bYvp/image.jpg');">
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item has-text-success" id="volver"  href="{% url 'inicio' %}">
+        Volver al sitio principal
+      </a>
+    </div>
+  </div>
+  </nav>
+
+
+  <div class="hero-body">
+    <div class="container">
+    
+      <h1 class="title is-1 is-size-4-mobile is-family-monospace pb-6 has-text-centered has-text-success mp7">
+        
+Bienvenidos a la Biblioteca virtual!
+     </h1>
+    
+
+      <div class="columns is-centered">
+        <div class="column is-9-tablet is-8-desktop is-5-widescreen">
+          <form method="POST" class="box">
+            {% csrf_token %}
+            <div class="field">
+              <label class="label">Correo electrónico</label>
+              <div class="control has-icons-left">
+                {{form.username}}
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Contraseña</label>
+              <div class="control has-icons-left">
+                {{form.password}}
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+             {% if request.method == 'POST' %} 
+            {% if form.error_messages %}
+            
+            
+              <div class="notification is-danger">{{ form.get_invalid_login_error  }}</div>
+            
+            {% endif %}
+            {% endif %}
+        
+            <div class="field">
+              <button type="submit" class="button is-success">
+                Iniciar sesion
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+</body>
+</html>

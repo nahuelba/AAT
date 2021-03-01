@@ -53,6 +53,22 @@ Donar - AAT
                             {{form.mensaje}}
                         </div>
                       </div>
+                      
+                      <div class="field">
+                      <div class="g-recaptcha" data-sitekey="6LcuBzgaAAAAACeb28NBQLieHIM-YDM64_drzPjM"></div>
+                      
+                      </div>
+                      
+                      {% if messages %}
+                    {% for message in messages %}
+                    
+                    <div class="notification {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                      
+                      
+                      
+                       
                    
                       <div class="field is-grouped">
                         <div class="control">
