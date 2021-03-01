@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')f0h&i#bb$r26a77s0yot9825o1-!h3@ejaj^kd3^+#y5wsk-3'
+SECRET_KEY = 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -138,7 +138,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'is-danger',
 }
 
-GOOGLE_RECAPTCHA_SECRET_KEY = '6LcuBzgaAAAAAGyJDZtvLcJL8iQt03KUaldNITyt'
+GOOGLE_RECAPTCHA_SECRET_KEY = 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
